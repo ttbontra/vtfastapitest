@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Stocks Ready to Rise</title>
+</head>
+<body>
+    <h1>High Probability to Rise Stocks</h1>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Recommend</th>
+            <th>Close</th>
+            <th>Change From Open</th>
+            <th>Volume</th>
+            <th>RSI</th>
+            <th>EMA5</th>
+            <th>EMA10</th>
+            <th>High 1M</th>
+            <th>Avg Vol 10D</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.name }}</td>
+            <td>{{ row['Recommend.All'] }}</td>
+            <td>{{ row.close|round(2) }}</td>
+            <td>{{ row.change_from_open|round(2) }}</td>
+            <td>{{ row.volume|round(2) }}</td>
+            <td>{{ row.RSI|round(2) }}</td>
+            <td>{{ row.EMA5|round(2) }}</td>
+            <td>{{ row.EMA10|round(2) }}</td>
+            <td>{{ row["High.1M"] }}</td>
+            <td>{{ row.average_volume_10d_calc|round(2) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
